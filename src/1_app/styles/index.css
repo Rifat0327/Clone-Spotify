@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap");
+@import "tailwindcss";
+/* @import "./_reset.css"; */
+
+@theme {
+  /* Font-family */
+
+  --font-inter: "Inter", sans-serif;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Оттенки серого */
+  --color-gray-300: #b3b3b3;
+  --color-gray-500: #8f8f8f;
+  --color-gray-600: #7c7c7c;
+  --color-gray-900: #1f1f1f;
+  --color-gray-1000: #131313;
+  --color-gray-1100: #121212;
+  --color-white-transparent: rgba(255, 255, 255, 0.5);
+
+  /* Зеленый */
+  --color-green-500: #1ED760
+
+  /* Градиенты */
+  --gradient-primary: linear-gradient(90deg, #af2896 0%, #509bf5 100%);
+
+  /* Font sizes */
+  --text-xm: 10px;
+  --text-sm: 11px;
+  --text-sm2: 13px;
+  --text-md: 14px;
+  --text-md2: 15px;
+  --text-lg: 21px;
+
+  /* Breakpoints */
+  --breakpoint-sm: 500px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+}
+
+body {
+  font-family: inter;
+  background-color: #000000;
+  /* height: 1000px; */
+  min-height: 100%;
+  width: 100%;
+}
+body.overflow-hidden {
+  padding-right: var(--scroll-width);
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1480px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#root {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.music-list {
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+}
+
+.dashboard-grid {
+  grid-template-areas:
+    "navbar navbar"
+    "sidebar main-content"
+    "sidebar footer";
+}
+
+.navbar {
+  grid-area: navbar;
+}
+.main-content {
+  grid-area: main-content;
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+}
+.sidebar-action-list {
+  &::-webkit-scrollbar {
+    height: 0;
+  }
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.footer {
+  grid-area: footer;
+}

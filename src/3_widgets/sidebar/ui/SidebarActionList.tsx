@@ -22,7 +22,7 @@ const SidebarActionList: React.FC = () => {
     },
   ];
   return (
-    <div className="sidebar-action-list flex flex-auto h-[133px] overflow-y-auto flex-col gap-5 mb-5 max-md:gap-2">
+    <div className="sidebar-action-list max-h-[134px] overflow-y-auto flex flex-col gap-5 mb-5 max-md:gap-2">
       {sidebarActionsList.map(
         ({ id, link, title, subTitle, buttonValue, cb }) => (
           <SidebarActionItem

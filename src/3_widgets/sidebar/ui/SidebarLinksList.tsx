@@ -14,10 +14,10 @@ const SidebarLinksList: React.FC = () => {
   ];
 
   return (
-    <div className="flex flex-wrap gap-y-2 mb-8 max-md:mb-5">
+    <div className="flex mb-4 flex-wrap gap-y-2">
       {sidebarLinks.map((el, i) => (
         <Link
-          className="text-gray-300 font-normal not-last:mr-4 text-xm/[126%] transition duration-300 ease-in-out hover:scale-105  hover:text-white"
+          className="text-gray-300 font-normal not-last:mr-4 text-md/[126%] max-lg:text-sm transition duration-300 ease-in-out hover:scale-105  hover:text-white"
           key={i}
           to={el.link}
         >

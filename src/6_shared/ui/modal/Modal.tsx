@@ -2,7 +2,7 @@ import React from "react";
 import { IModalProps } from "@/6_shared/model/types";
 import classNames from "classnames";
 
-const Modal: React.FC<IModalProps> = ({ children, close, isOpen, variant }) => {
+const Modal: React.FC<IModalProps> = ({ children, close, isOpen }) => {
   if (!isOpen) {
     return null;
   }
@@ -17,11 +17,10 @@ const Modal: React.FC<IModalProps> = ({ children, close, isOpen, variant }) => {
     <div
       onClick={closeModal}
       className={classNames(
-        "overlay fixed inset-0 z-1000 flex justify-center",
-        { top: "mt-10", center: "items-center" }[variant]
+        "overlay fixed inset-0 z-1000 bg-black/50 backdrop-blur-[3px]"
       )}
     >
-      <div className={"flex flex-col"}>{children}</div>
+      {children}
     </div>
   );
 };

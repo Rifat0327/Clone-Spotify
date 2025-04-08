@@ -13,7 +13,7 @@ const Icon: React.FC<{ icon: string; classes?: string }> = ({
     <span
       style={elStyle}
       className={classNames(
-        "bg-current min-w-4 min-h-4 inline-block",
+        "bg-current transition duration-150 ease-in-out min-w-4 min-h-4 inline-block",
         classes
       )}
     ></span>

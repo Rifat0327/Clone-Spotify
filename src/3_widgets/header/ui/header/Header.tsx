@@ -6,14 +6,22 @@ import { useMediaQuery } from "react-responsive";
 import Search from "@/4_features/search";
 import IconButton from "@/6_shared/ui/iconButton/IconButton";
 import Icon from "@/6_shared/ui/icon/Icon";
+import { useAppDispatch, useAppSelector } from "@/1_app/store/hooks";
+import {
+  selectorSwitchContentFromHeader,
+  switchActiveButton,
+} from "../../model/slices/switchContentFromHeader";
 
 const Header: React.FC = () => {
+  const activeHeaderButton = useAppSelector(selectorSwitchContentFromHeader);
+  const dispatch = useAppDispatch();
+
   const isMobile = useMediaQuery({
     query: "(max-width: 640px)",
   });
 
   return (
-    <header className={"navbar py-5 bg-black"}>
+    <header className={"navbar max-lg:py-3 py-5 bg-black"}>
       <div className={"flex justify-between gap-2 items-center"}>
         <Logo />
         <div
@@ -23,10 +31,14 @@ const Header: React.FC = () => {
         >
           <IconButton
             classes="size-12 max-md:size-8"
-            cb={() => {}}
+            cb={() => {
+              dispatch(switchActiveButton("home"));
+            }}
             slot={
               <Icon
-                classes="w-1/2 h-1/2 "
+                classes={`w-1/2 h-1/2 ${
+                  activeHeaderButton === "home" ? "" : "text-white/50"
+                } `}
                 icon="/src/6_shared/icons/home.svg"
               />
             }

@@ -1,3 +1,3 @@
-import Sidebar from "./ui/Sidebar";
+import SidebarLayout from "./ui/SidebarLayout";
 
-export default Sidebar
+export default SidebarLayout;

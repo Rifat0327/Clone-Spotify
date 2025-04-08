@@ -22,7 +22,7 @@ const MusicList: React.FC<IMusicList> = ({ title, link, variant, items }) => {
  
    return (
     <section className="relative ">
-      <div className="flex justify-between items-center mb-5">
+      <div className="flex justify-between items-center max-lg:mb-1 mb-5">
         <h2 className="font-bold text-lg/[132%] text-white max-md:text-[15px]">{title}</h2>
         <Link 
           className="font-bold text-sm2/[127%] p-3 text-white transition duration-150 ease-in-out hover:text-white/50 hover:scale-105" 
@@ -33,7 +33,7 @@ const MusicList: React.FC<IMusicList> = ({ title, link, variant, items }) => {
       </div>
       
       <div className="relative w-full">
-        <div className="music-list overflow-x-auto"> 
+        <div className="music-list overflow-y-hidden overflow-x-auto"> 
           <ul className="flex gap-3" style={{ width: 'max-content' }}>
             {items.map((item) => (
               <li key={item.id} className="shrink-0"> 

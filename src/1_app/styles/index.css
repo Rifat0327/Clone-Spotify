@@ -20,7 +20,7 @@
   --color-white-transparent: rgba(255, 255, 255, 0.5);
 
   /* Зеленый */
-  --color-green-500: #1ED760
+  --color-green-500: #1ed760;
 
   /* Градиенты */
   --gradient-primary: linear-gradient(90deg, #af2896 0%, #509bf5 100%);
@@ -34,7 +34,7 @@
   --text-lg: 21px;
 
   /* Breakpoints */
-  --breakpoint-sm: 500px;
+  --breakpoint-sm: 500.98px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
 }
@@ -73,7 +73,13 @@ body.overflow-hidden {
   grid-template-areas:
     "navbar navbar"
     "sidebar main-content"
-    "sidebar footer";
+    "now-playing-bar now-playing-bar";
+  @media (max-width: 500.98px) {
+    grid-template-areas:
+      "navbar"
+      "main-content"
+      "now-playing-bar";
+  }
 }
 
 .navbar {

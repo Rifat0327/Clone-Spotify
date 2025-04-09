@@ -198,7 +198,7 @@ const MainContent: React.FC = () => {
   ];
 
   return (
-    <div className="main-content bg-gray-1100 rounded-2xl max-lg:px-3 max-lg:py-2 px-5 py-4 overflow-auto flex flex-col max-lg:gap-3 gap-10">
+    <div className="bg-gray-1100 rounded-2xl max-lg:px-3 max-lg:py-2 px-5 py-4  flex flex-col max-lg:gap-3 gap-10">
       {data.map(({ title, link, variant, items, id }) => (
         <MusicList
           key={id}

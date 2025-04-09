@@ -6,15 +6,15 @@ import { useMediaQuery } from "react-responsive";
 import { createPortal } from "react-dom";
 import SearchModalForm from "./SearchModalForm";
 import IconButton from "@/6_shared/ui/iconButton/IconButton";
-import { useAppSelector, useAppDispatch } from "@/1_app/store/hooks";
-import { selectorSwitchContentFromHeader } from "@/3_widgets/header/model/slices/switchContentFromHeader";
-import { switchActiveButton } from "@/3_widgets/header";
+import { useLocation, useNavigate } from "react-router";
 
 const Search: React.FC = () => {
   const [inputValue, setInputValue] = React.useState<string>("");
   const [isModalOpen, setIsModelOpen] = React.useState<boolean>(false);
-  const activeHeaderButton = useAppSelector(selectorSwitchContentFromHeader);
-  const dispatch = useAppDispatch();
+
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const isMobile = useMediaQuery({
     query: "(max-width: 500px)",
@@ -80,12 +80,12 @@ const Search: React.FC = () => {
             <IconButton
               classes="pl-2 pr-3 max-md:pl-1 max-md:pr-2"
               cb={() => {
-                dispatch(switchActiveButton("browse"))
+                navigate("/search");
               }}
               slot={
                 <Icon
                   classes={`w-6 h-6 ${
-                    activeHeaderButton === "browse" ? "" : "text-white/50"
+                    location.pathname === "/search" ? "" : "text-white/50"
                   } `}
                   icon="/src/6_shared/icons/music-library.svg"
                 />

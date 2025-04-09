@@ -1,20 +1,16 @@
 import React from "react";
 import Logo from "@/6_shared/ui/logo/Logo";
 import ActionBtn from "@/6_shared/ui/actionBtn/ActionBtn";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { useMediaQuery } from "react-responsive";
 import Search from "@/4_features/search";
 import IconButton from "@/6_shared/ui/iconButton/IconButton";
 import Icon from "@/6_shared/ui/icon/Icon";
-import { useAppDispatch, useAppSelector } from "@/1_app/store/hooks";
-import {
-  selectorSwitchContentFromHeader,
-  switchActiveButton,
-} from "../../model/slices/switchContentFromHeader";
 
 const Header: React.FC = () => {
-  const activeHeaderButton = useAppSelector(selectorSwitchContentFromHeader);
-  const dispatch = useAppDispatch();
+
+  const location = useLocation();
+  const navigate = useNavigate()
 
   const isMobile = useMediaQuery({
     query: "(max-width: 640px)",
@@ -32,12 +28,12 @@ const Header: React.FC = () => {
           <IconButton
             classes="size-12 max-md:size-8"
             cb={() => {
-              dispatch(switchActiveButton("home"));
+              navigate("/")
             }}
             slot={
               <Icon
                 classes={`w-1/2 h-1/2 ${
-                  activeHeaderButton === "home" ? "" : "text-white/50"
+                  location.pathname === "/" ? "" : "text-white/50"
                 } `}
                 icon="/src/6_shared/icons/home.svg"
               />
